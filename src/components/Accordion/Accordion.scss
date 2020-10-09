@@ -1,10 +1,15 @@
 .Accordion {
-  display: flex;
-	flex-direction: column;
 	
-	&__Title {
+	&__Panel {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 2px;
+	}
+	
+	&__Trigger {
+		width: 100%;
 		font-size: 18px;
-		background-color: #EEE;
+		background-color: #DDD;
 		color: #444;
 		cursor: pointer;
 		display: flex;
@@ -13,6 +18,7 @@
 		outline: none;
 		transition: background-color 0.6s ease;
 		padding: 15px;
+		text-align: left;
 		
 		&:hover,
 		.active {
@@ -30,9 +36,10 @@
 	}
 
 	&__Body {
-		background-color: white;
-		transition: max-height 0.6s ease;
-		max-height: 100vh;
+		background-color: #EEE;
+		overflow: hidden;
+		will-change: height;
+		transition: height .4s cubic-bezier(.65, .05, .36, 1);
 
 		&--collapsed {
 			overflow: hidden;
@@ -44,5 +51,13 @@
 		font-weight: 400;
 		font-size: 14px;
 		padding: 15px;
+		opacity: 0;
+		transition: opacity .3s linear .18s;
+	}
+
+	[aria-expanded="true"] {
+		.Accordion__Text {
+			opacity: 1;
+		}
 	}
 }
