@@ -1,0 +1,48 @@
+.Accordion {
+  display: flex;
+	flex-direction: column;
+	
+	&__Title {
+		font-size: 18px;
+		background-color: #EEE;
+		color: #444;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		border: none;
+		outline: none;
+		transition: background-color 0.6s ease;
+		padding: 15px;
+		
+		&:hover,
+		.active {
+			background-color: #CCC;
+		}
+	}
+
+	&__Icon {
+		margin-left: auto;
+		transition: transform 0.6s ease;
+		
+		&--rotate {
+			transform: rotate(90deg);
+		}
+	}
+
+	&__Body {
+		background-color: white;
+		transition: max-height 0.6s ease;
+		max-height: 100vh;
+
+		&--collapsed {
+			overflow: hidden;
+			max-height: 0;
+		}
+	}
+
+	&__Text {
+		font-weight: 400;
+		font-size: 14px;
+		padding: 15px;
+	}
+}
